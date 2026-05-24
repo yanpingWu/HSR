@@ -8,8 +8,8 @@ HSR/
 ├── scripts/
 │   └── run_exp1.sh          # one-command Exp-1 driver
 ├── algorithms/
-│   ├── bbfs/                # Online baseline (bidirectional BFS)
-│   ├── asearch/             # A* search baseline
+│   ├── bbfs/                # BS-BiBFS (online baseline, bidirectional BFS)
+│   ├── asearch/             # BS-A* baseline
 │   ├── index/               # Index (writes Index_I_Exp1.txt — legacy filename)
 │   ├── lvo_I/               # LVO-I
 │   └── lvo_II/              # LVO-II
@@ -47,10 +47,10 @@ If you prefer not to use `make`, run these five commands directly — they
 are exactly what `make` invokes under the hood:
 
 ```bash
-# BBFS
+# BS-BiBFS
 g++ -O3 -std=c++11 algorithms/bbfs/bbfs.cpp                   -o algorithms/bbfs/bbfs
 
-# A* search
+# BS-A*
 g++ -O3 -std=c++11 algorithms/asearch/asearch.cpp             -o algorithms/asearch/asearch
 
 # Index
@@ -76,8 +76,8 @@ per-run summary to `datasets/<dataset>/<ALGO>_Exp1.txt`:
 
 | Algorithm | Output file (under `datasets/<dataset>/`) |
 |-----------|--------------------------------------------|
-| BBFS      | `BBFS_Exp1.txt`                            |
-| A*-search | `Asearch_Exp1.txt`                         |
+| BS-BiBFS  | `BBFS_Exp1.txt`                            |
+| BS-A*     | `Asearch_Exp1.txt`                         |
 | Index     | `Index_I_Exp1.txt`                         |
 | LVO-I     | `LVO_I_Exp1.txt`                           |
 | LVO-II    | `LVO_II_Exp1.txt`                          |
@@ -104,10 +104,10 @@ two baselines and the three indexed algorithms take slightly different
 arguments because they were developed independently.
 
 ```bash
-# BBFS (online baseline)
+# BS-BiBFS (online baseline)
 ./algorithms/bbfs/bbfs        <dataset_dir> <k>
 
-# A* search baseline
+# BS-A* baseline
 ./algorithms/asearch/asearch  <dataset_dir> <k>
 
 # Index
@@ -132,14 +132,14 @@ on the `bitcoin` dataset with `k=6` over the 1000 queries in
 `query_exp1.txt`.
 
 ```bash
-# Build the BBFS executable
+# Build the BS-BiBFS executable
 g++ -O3 -std=c++11 algorithms/bbfs/bbfs.cpp -o algorithms/bbfs/bbfs
-# Run BBFS on the bitcoin dataset, reading query_exp1.txt with k=6 (1000 queries)
+# Run BS-BiBFS on the bitcoin dataset, reading query_exp1.txt with k=6 (1000 queries)
 ./algorithms/bbfs/bbfs datasets/bitcoin 6
 
-# Build the A*-search executable
+# Build the BS-A* executable
 g++ -O3 -std=c++11 algorithms/asearch/asearch.cpp -o algorithms/asearch/asearch
-# Run A*-search on the bitcoin dataset, reading query_exp1.txt with k=6 (1000 queries)
+# Run BS-A* on the bitcoin dataset, reading query_exp1.txt with k=6 (1000 queries)
 ./algorithms/asearch/asearch datasets/bitcoin 6
 
 # Build the Index executable
