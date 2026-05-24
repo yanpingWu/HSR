@@ -8,8 +8,8 @@ HSR/
 ├── scripts/
 │   └── run_exp1.sh          # one-command Exp-1 driver
 ├── algorithms/
-│   ├── bbfs/                # BS-BiBFS (online baseline, bidirectional BFS)
-│   ├── asearch/             # BS-A* baseline
+│   ├── bbfs/                # BS-BiBFS
+│   ├── asearch/             # BS-A*
 │   ├── index/               # Index (writes Index_I_Exp1.txt — legacy filename)
 │   ├── lvo_I/               # LVO-I
 │   └── lvo_II/              # LVO-II
@@ -86,11 +86,11 @@ Examples:
 
 ```bash
 make
-./scripts/run_exp1.sh bitcoin       8
-./scripts/run_exp1.sh epinions      8
-./scripts/run_exp1.sh slashdot      8
-./scripts/run_exp1.sh wikiconflict  8
-./scripts/run_exp1.sh wikisign      8
+./scripts/run_exp1.sh bitcoin       6
+./scripts/run_exp1.sh epinions      6
+./scripts/run_exp1.sh slashdot      6
+./scripts/run_exp1.sh wikiconflict  6
+./scripts/run_exp1.sh wikisign      6
 ```
 
 The output files are opened in append mode, so re-running the same
