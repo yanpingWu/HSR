@@ -1,8 +1,5 @@
 # HSR
 
-This artifact accompanies the paper **"Hop-constrained Reachability Queries on Directed Signed Graphs"**.
-It contains five algorithms and five datasets.
-
 ## Directory layout
 
 ```
